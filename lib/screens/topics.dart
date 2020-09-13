@@ -14,18 +14,13 @@ class TopicsScreen extends StatelessWidget {
         if (snap.hasData) {
           List<Topic> topics = snap.data;
           return Scaffold(
+
             appBar: AppBar(
               backgroundColor: Colors.lightBlue,
               title: Text('Topics'),
-              actions: [
-                IconButton(
-                  icon: Icon(FontAwesomeIcons.userCircle,
-                      color: Colors.blue[200]),
-                  onPressed: () => Navigator.pushNamed(context, '/profile'),
-                )
-              ],
             ),
-            drawer: TopicDrawer(topics: snap.data),
+
+            endDrawer: TopicDrawer(topics: snap.data),
             body: GridView.count(
               primary: false,
               padding: const EdgeInsets.all(20.0),

@@ -9,20 +9,11 @@ class ClassesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
+
       appBar: AppBar(
-        flexibleSpace: FlexibleSpaceBar(
-              centerTitle: true,
-              title: Text('Title',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  )),
-              background: Image.network(
-                'https://images.pexels.com/photos/443356/pexels-photo-443356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-                fit: BoxFit.cover,
-              )
-        ),
+        backgroundColor: Colors.red,
+        toolbarHeight: MediaQuery.of(context).size.height/8,
+        elevation: 0,
         ),
 
 
@@ -42,11 +33,15 @@ class ClassesScreen extends StatelessWidget {
                     title: 'Mathematics',
                     image: 'classIcons/calculator.png',
                     routeName: '/subject',
+                    showDivider: true,
+                    color: Colors.blue,
                   ),
                   IconCard(
                     title: 'Physical Science',
                     image: 'classIcons/flask.png',
                     routeName: '/physicsPapers',
+                    showDivider: true,
+                    color: Colors.lightBlueAccent,
                   )
                 ],
               ),
@@ -56,10 +51,15 @@ class ClassesScreen extends StatelessWidget {
                 children: [
                   IconCard(
                       title: 'Life Science',
-                      image: 'classIcons/dna.png'),
+                      image: 'classIcons/dna.png',
+                      showDivider: true,
+                    color: Colors.lightBlue[100],
+                  ),
                   IconCard(
                     title: 'Geography',
                     image: 'classIcons/globe.png',
+                    showDivider: true,
+                    color: Colors.blue[900],
                   )
                 ],
               ),
@@ -70,11 +70,15 @@ class ClassesScreen extends StatelessWidget {
                   IconCard(
                     title: 'English',
                     image:'classIcons/abc.png',
+                    showDivider: true,
+                    color: Colors.lightBlue[200],
                   ),
 
                   IconCard(
                       title: 'Isizulu',
-                      image: 'classIcons/african.png'
+                      image: 'classIcons/african.png',
+                    showDivider: true,
+                    color: Colors.brown,
                   )
                 ],
               ),

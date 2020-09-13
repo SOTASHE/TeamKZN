@@ -46,6 +46,8 @@ class StudentApp extends StatelessWidget{
           "/examPapers": (context) => ExamPapersScreen(),
           "/games": (context) => GamesScreen(),
           "/topics": (context) => ExamPapersScreen(),
+          "/profile": (context) => ProfileScreen(),
+          "/about": (context) => AboutScreen(),
 
         },
 
