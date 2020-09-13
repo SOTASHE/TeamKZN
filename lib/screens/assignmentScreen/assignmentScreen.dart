@@ -1,4 +1,5 @@
-/*import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:student/models/assignment.dart';
 import 'package:student/screens/assignmentScreen/assignmentCard.dart';
 
@@ -23,8 +24,9 @@ class AssignmentScreen extends StatelessWidget{
             indicator: BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15)),
-                color: Colors.white),
+                    topRight: Radius.circular(15),),
+                color: Colors.white
+            ),
 
             tabs: [
 
@@ -48,8 +50,11 @@ class AssignmentScreen extends StatelessWidget{
                     return AssignmentCard(
                       subjectName: assignmentsAvailable[index].getSubjectName(),
                       title: assignmentsAvailable[index].getTitle() ,
+                      dueDate: assignmentsAvailable[index].getDueDate(),
+                      instructions: assignmentsAvailable[index].getInstructions(),
                       shortIntro: assignmentsAvailable[index].getIntro(),
                       marks: assignmentsAvailable[index].getMarks(),
+                      resources: assignmentsAvailable[index].getAssignmentFiles(),
                         );
                   }),
             ),
@@ -61,8 +66,11 @@ class AssignmentScreen extends StatelessWidget{
                     return AssignmentCard(
                       subjectName: assignmentsAvailable[index].getSubjectName(),
                       title: assignmentsAvailable[index].getTitle() ,
+                      dueDate: assignmentsAvailable[index].getDueDate(),
+                      instructions: assignmentsAvailable[index].getInstructions(),
                       shortIntro: assignmentsAvailable[index].getIntro(),
                       marks: assignmentsAvailable[index].getMarks(),
+                      resources: assignmentsAvailable[index].getAssignmentFiles(),
                         );
                   }),
             ),
@@ -72,5 +80,3 @@ class AssignmentScreen extends StatelessWidget{
     );
   }
 }
-
-*/

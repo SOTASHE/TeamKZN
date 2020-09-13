@@ -1,11 +1,11 @@
-/*import 'package:flutter/material.dart';
-import '../services/services.dart';
-import '../shared/shared.dart';
-import '../screens/screens.dart';
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TopicsScreen extends StatelessWidget {
+import '../screens/screens.dart';
+import '../services/services.dart';
+import '../shared/shared.dart';
 
+class TopicsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -15,12 +15,12 @@ class TopicsScreen extends StatelessWidget {
           List<Topic> topics = snap.data;
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.lightBlue,
               title: Text('Topics'),
               actions: [
                 IconButton(
                   icon: Icon(FontAwesomeIcons.userCircle,
-                      color: Colors.pink[200]),
+                      color: Colors.blue[200]),
                   onPressed: () => Navigator.pushNamed(context, '/profile'),
                 )
               ],
@@ -68,7 +68,7 @@ class TopicItem extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/covers/${topic.img}',
-                  //fit: BoxFit.contain,
+                  fit: BoxFit.contain,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,7 +119,7 @@ class TopicScreen extends StatelessWidget {
         Text(
           topic.title,
           style:
-              TextStyle(height: 2, fontSize: 20, fontWeight: FontWeight.bold),
+          TextStyle(height: 2, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         QuizList(topic: topic)
       ]),
@@ -133,39 +133,38 @@ class QuizList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Column(
         children: topic.quizzes.map((quiz) {
-      return Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        elevation: 4,
-        margin: EdgeInsets.all(4),
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) => QuizScreen(quizId: quiz.id),
+          return Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+            elevation: 4,
+            margin: EdgeInsets.all(4),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => QuizScreen(quizId: quiz.id),
+                  ),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.all(8),
+                child: ListTile(
+                  title: Text(
+                    quiz.title,
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  subtitle: Text(
+                    quiz.description,
+                    overflow: TextOverflow.fade,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  leading: QuizBadge(topic: topic, quizId: quiz.id),
+                ),
               ),
-            );
-          },
-          child: Container(
-            padding: EdgeInsets.all(8),
-            child: ListTile(
-              title: Text(
-                quiz.title,
-                style: Theme.of(context).textTheme.title,
-              ),
-              subtitle: Text(
-                quiz.description,
-                overflow: TextOverflow.fade,
-                style: Theme.of(context).textTheme.subhead,
-              ),
-              leading: QuizBadge(topic: topic, quizId: quiz.id),
             ),
-          ),
-        ),
-      );
-    }).toList());
+          );
+        }).toList());
   }
 }
 
@@ -188,7 +187,7 @@ class TopicDrawer extends StatelessWidget {
                   padding: EdgeInsets.only(top: 10, left: 10),
                   child: Text(
                     topic.title,
-                    // textAlign: TextAlign.left,
+                    //textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -204,5 +203,3 @@ class TopicDrawer extends StatelessWidget {
     );
   }
 }
-
-*/

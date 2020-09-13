@@ -2,7 +2,10 @@ import "package:flutter/material.dart";
 import 'package:student/screens/announcementScreen/announcementScreen.dart';
 import 'package:student/screens/assignmentScreen/assignmentScreen.dart';
 import 'package:student/screens/classesScreen.dart';
+import 'package:student/screens/gameScreen.dart';
 import 'package:student/screens/homeScreen/homeScreen.dart';
+import 'package:student/screens/pastExamPapers/examPapersScreen.dart';
+import 'package:student/screens/studyMaterialScreen.dart';
 
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -13,74 +16,42 @@ import 'package:provider/provider.dart';
 
 void main() => runApp(StudentApp());
 
-class StudentApp extends StatelessWidget {
+class StudentApp extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
+
     return MultiProvider(
       providers: [
         StreamProvider<Report>.value(value: Global.reportRef.documentStream),
         StreamProvider<FirebaseUser>.value(value: AuthService().user),
       ],
+
+
       child: MaterialApp(
-        // Firebase Analytics
+
+        //Firebase analytics
         navigatorObservers: [
           FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
         ],
 
-        // Named Routes
-        routes: {
-          '/': (context) => LoginScreen(),
-          '/home': (context) => HomeScreen(),
-          // "/assignment": (context) => AssignmentScreen(),
-          "/announcements": (context) => AnnouncementScreen(),
 
+        routes: {
+          "/": (context) => LoginScreen(),
+          "/home": (context) => HomeScreen(),
           "/classes": (context) => ClassesScreen(),
-          //'/topics': (context) => TopicsScreen(),
-          '/profile': (context) => ProfileScreen(),
-          '/about': (context) => AboutScreen()
+          "/assignment": (context) => AssignmentScreen(),
+          "/announcements": (context) => AnnouncementScreen(),
+          "/studyMaterial": (context) => StudyMaterialScreen(),
+          "/examPapers": (context) => ExamPapersScreen(),
+          "/games": (context) => GamesScreen(),
+          "/topics": (context) => ExamPapersScreen(),
+
         },
 
-        /* //Theme
-        theme: ThemeData(
-          fontFamily: 'Nunito',
-          bottomAppBarTheme: BottomAppBarTheme(
-            color: Colors.black87,
-          ),
-          brightness: Brightness.dark,
-          textTheme: TextTheme(
-            body1: TextStyle(fontSize: 18),
-            body2: TextStyle(fontSize: 16),
-            button: TextStyle(letterSpacing: 1.5, fontWeight: FontWeight.bold),
-            headline: TextStyle(fontWeight: FontWeight.bold),
-            subhead: TextStyle(color: Colors.grey),
-          ),
-          buttonTheme: ButtonThemeData(),
-         
-        ),
-        */
+
+
       ),
     );
   }
 }
-
-/*
-void main() => runApp(StudentApp());
-
-class StudentApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        "/home": (context) => HomeScreen(),
-        "/classes": (context) => ClassesScreen(),
-        "/assignment": (context) => AssignmentScreen(),
-        "/announcements": (context) => AnnouncementScreen(),
-      },
-      home: HomeScreen(),
-    );
-  }
-}
-
-
-
-*/

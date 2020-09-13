@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:getwidget/components/loader/gf_loader.dart';
+import 'package:getwidget/getwidget.dart';
 
 
 class Loader extends StatelessWidget {
@@ -7,7 +9,9 @@ class Loader extends StatelessWidget {
     return Container(
       width: 250,
       height: 250,
-      child: CircularProgressIndicator(),
+      child: GFLoader(
+        type: GFLoaderType.circle,
+      ),
     );
   }
 }

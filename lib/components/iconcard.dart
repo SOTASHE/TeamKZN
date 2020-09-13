@@ -3,14 +3,18 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 
 class IconCard extends StatelessWidget{
   //Instance variables
   final String title;
   final String image;
   final String routeName;
+  final Color color;
+  final bool showDivider;
 
-  IconCard({ this.title, this.image, this.routeName});
+  IconCard({ this.title, this.image, this.routeName,
+    this.showDivider, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +49,19 @@ class IconCard extends StatelessWidget{
                     ),
                   ),
 
-                  Text(this.title),
+                 //Title
+                 Expanded(
+                   child: Padding(
+                     padding: const EdgeInsets.only(left:8.0),
+                     child: GFTypography(
+                       text: this.title,
+                       type: GFTypographyType.typo6,
+                       dividerAlignment: Alignment.bottomLeft,
+                       dividerColor: this.color,
+                       showDivider: this.showDivider,
+                     ),
+                   ),
+                 )
                 ],
               ),
             )

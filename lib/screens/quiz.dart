@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
-import '../shared/shared.dart';
-import '../services/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../services/services.dart';
+import '../shared/shared.dart';
 
 // Shared Data
 class QuizState with ChangeNotifier {
